@@ -1,0 +1,45 @@
+.card {
+	position: relative;
+	display: table;
+	margin:1px 1px;
+	border-radius: 5px;
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+.card:hover {
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.6);
+  }
+  
+.notavailabletopick{
+	pointer-events: none;
+}
+
+.scene {
+	width: 90px;
+	height: 135px;
+	perspective: 600px;
+	display: table;
+}
+.card {
+	width: 90px;
+	height: 135px;
+	position: relative;
+	transition: transform 1s;
+	transform-style: preserve-3d;
+}
+  .card__face {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	backface-visibility: hidden;
+	border-radius: 5px;
+  }
+ 
+  .card__face--back {
+	background-color: #00adb5;
+	background-image: url('https://axaguildev.github.io/react-toolkit/v1.3.6/storybook/images/react.svg');
+	transform: rotateY( 180deg );
+  }
+  .card.is-flipped {
+	transform: rotateY(180deg);
+  }
+  
