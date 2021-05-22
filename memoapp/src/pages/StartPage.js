@@ -26,7 +26,7 @@ function StartPage({ history }) {
             })
         }
         <div className="text-align-right tooltip">
-                <img className="change-cursor" alt="Imagen de boton de inicio" src="https://lh3.googleusercontent.com/cU9CleitBrI8Wi9JGqDIz78If73bOIO9LYVhuJKWQ3UJSZe3hj6VeqlVoMUgfVFrg5OHr9eLPzpXNC3N33IHg-CZmW2Iq1Id2sFOEKjhkyElPgps0JYuXEH7Zs46X4ho8X_UDY-mW0U_YxMRvi3BU4YtakkJVmbjUuZJ3BFdL9sal8Rt-fm-7sGnQwq7xPSrGWqP0S2U-F-g79JXbfDkgLgagTB4s0cGJ360OjQQBeuer1FH9ga5naZ-B6qSTfYBAI69jQ0TQVTkslIj8sfL2pulkK6DhkNxqu_yR9PhW503menUyelAnWb2qBMCUAxh76V9PD8BgCyGMVsKciOG8ih96nizYu5bkut-24y4PCw5PO2r7DIAZ1MH2rlgbIkdVHy7Hiqzv_be5Ik2bHSxcesC_77lwpjApc7JlpRf4D2VYL3ZADBbelnbD6ILVoCFJtoSgAAmFrJNDpVPV6toTJFl1GxaRGIC1ux0NulCq5OR274LnTy0GgyxnfXVRxOYUhhBbwsTc8A2Cz-ykwZXdSTWtEBbyCgvpso5fZa4cdvWfjS7CiZqM70ZIliyksmtCVPDSsQYT7ibrC2iEsiU6tPhOiQTlPNZlThRwhursegzfd_J4C9AMcLNH1Vv4Ayhish434dNDmrZl7VeiQ5o16tpls2tDuP0Ent9sRc0-pCKOoZziRO890w_5vcPkUkODwZKkQHqFmzyE6J4_xcd_95g3A=w122-h56-no?authuser=0" onClick={() => {
+                <img className="change-cursor" alt="Imagen de boton de inicio" src="https://drive.google.com/uc?export=view&id=1GwHFCSTCkMytpyy6j7l20ARjnN7yjiue" onClick={() => {
                     history.replace("/memo/memorama",{cardsPerRowColumn:selected});
                 }}></img>
                 <div className="tooltiptext bottom">
