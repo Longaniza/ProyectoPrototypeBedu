@@ -35,7 +35,7 @@
   }
  
   .card__face--back {
-	background-color: #00adb5;
+	background-color: black;
 	background-image: url('https://axaguildev.github.io/react-toolkit/v1.3.6/storybook/images/react.svg');
 	transform: rotateY( 180deg );
   }

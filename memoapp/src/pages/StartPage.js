@@ -2,6 +2,12 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { difficulties } from '../data/data';
+import IconButton from '@material-ui/core/IconButton';
+import PlayArrowIcon from '@material-ui/icons/PlayArrow';
+import HelpIcon from '@material-ui/icons/Help';
+import TimerIcon from '@material-ui/icons/Timer';
+
+
 
 function StartPage({ history }) {
     const [selected, setSelected] = useState(12);
@@ -11,33 +17,33 @@ function StartPage({ history }) {
                 return (<div key={index} className={`${selected === elem.cardsPerRowColumn ? 'selected' : ''} animate__animated animate__slideInLeft change-cursor difficulty`} onClick={(e) => { setSelected(elem.cardsPerRowColumn) }}>
 
                     <div>
-                        <img style={{ height: "20vh", width: "20vh" }} src={elem.imgUrl} alt="cardimg"></img>
+                        {elem.icon}
                     </div>
                     <div>
                         <h1>{elem.name}</h1>
                         <h1 className="size" >{elem.size}</h1>
-
                         <div className="text-align-right tooltip">
-                            <i style={{ color: "#48466d" }} className="fas fa-question-circle"></i>
+                            <HelpIcon />
                             <span className="tooltiptext">{elem.message}</span>
                         </div>
                     </div>
                 </div>);
             })
         }
-        <div className="text-align-right tooltip">
-                <img className="change-cursor" alt="Imagen de boton de inicio" src="https://drive.google.com/uc?export=view&id=1GwHFCSTCkMytpyy6j7l20ARjnN7yjiue" onClick={() => {
-                    history.replace("/memo/memorama",{cardsPerRowColumn:selected});
-                }}></img>
-                <div className="tooltiptext bottom">
-                <span>Presiona para iniciar el juego</span>
-            </div>
+        <div className="text-align-right">
+            <IconButton aria-label="add to shopping cart"
+                onClick={() => {
+                    history.replace("/memo/memorama", { cardsPerRowColumn: selected });
+                }}
+            >
+                <PlayArrowIcon color="primary" style={{ fontSize: 60 }} />
+            </IconButton>
         </div>
         <div id="scores-initial-menu" className="tooltip">
             <Link
                 to="/memo/scores"
             >
-                <i style={{ fontSize: "2rem" }} className="fas fa-stopwatch"></i>
+                <TimerIcon color="primary" style={{ fontSize: 30 }}></TimerIcon>
             </Link>
 
             <div className="tooltiptext bottom">

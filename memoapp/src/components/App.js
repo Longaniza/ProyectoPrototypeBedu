@@ -1,10 +1,21 @@
 import React from 'react'
 import AppRouter from '../routers/AppRouter';
+import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+//Providar del tema de nuestra app
+const theme = createMuiTheme({
+    palette: {
+        primary: {
+            main: "#000000",
+        },
+    },
+});
 
 const App = () => {
     return (
         //Enrutador de la App
-       <AppRouter/>
+        <ThemeProvider theme={theme}>
+            <AppRouter />
+        </ThemeProvider>
     )
 }
 

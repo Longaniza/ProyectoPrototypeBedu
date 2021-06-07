@@ -1,31 +1,42 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
+import Paper from '@material-ui/core/Paper';
+import ViewColumnIcon from '@material-ui/icons/ViewColumn';
+import ViewModuleIcon from '@material-ui/icons/ViewModule';
+import ViewComfyIcon from '@material-ui/icons/ViewComfy';
+import TopScore from '../components/TopScore';
+
 
 //Componente que representa la pagina de puntajes ordenados de menor a mayor segun el tiempo 
 const ScoresPage = () => {
-    //Obtencion de los tiempos y ordenamiento de estos por categoria
-    const highScores = JSON.parse(localStorage.getItem("highScores")) || { 12: [], 24: [], 48: [] };
-    for (const cards in highScores) {
-        highScores[cards].sort(function (a, b) { return a.seconds - b.seconds });
-    }
+    const [value, setValue] = useState("12");
+
+    const handleChange = (event, newValue) => {
+        setValue(newValue);
+    };
+
     return (
         <div>
+            <Paper square>
+                <Tabs
+                    value={value}
+                    onChange={handleChange}
+                    variant="fullWidth"
+                    textColor="primary"
+                    indicatorColor="primary"
+                    aria-label="icon label tabs example"
+                >
+                    <Tab value="12" icon={<ViewColumnIcon />} label="12 CARTAS" />
+                    <Tab value="24" icon={<ViewModuleIcon />} label="24 CARTAS" />
+                    <Tab value="48" icon={<ViewComfyIcon />} label="48 CARTAS" />
+                </Tabs>
+            </Paper>
             <h1 className="titulo"><strong>Mejores tiempos</strong></h1>
             <br></br>
-            <div className="container"><div>
-            {
-                Object.entries(highScores).map(([totalCards, registries], index) => {
-                    return <div style={{textAlign:"center"}}  key={index}>
-                        <img
-                    src="https://bit.ly/3vCDa4K"
-                    alt="Score winner" width="140" height="140"></img>
-                        <h1 className="scores"><b>{totalCards} cartas</b></h1>
-                        {registries.length ? registries.map(({ name, seconds }, index) => {
-                            return <h1 className="scores" key={index}>{`${name}   ${seconds}s`}</h1>
-                        }) : <h1>N/A</h1>}
-                    </div>;
-                })
-            }
-            </div></div>
+            <div className="container">
+                <TopScore totalCards={value} />
+            </div>
         </div>
     )
 }

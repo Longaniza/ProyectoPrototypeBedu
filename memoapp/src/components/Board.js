@@ -1,14 +1,24 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import Card from '../components/Card';
 import Grid from '@material-ui/core/Grid';
 import { urls, responsiveRows } from '../data/data';
 import Form from './Form';
 import PropTypes from 'prop-types';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 //Componente que representa el tablero
 const Board = ({ cardsPerRowColumn, context, totalSeconds }) => {
+    const [loading, setLoading] = useState(true);
     const [cards, setCards] = useState([]);
+    const [cardsClicked, setCardsClicked] = useState(0);
     const [selectedCard, setSelectedCard] = useState({});
+    const counter = useRef(0);
+    const imageLoaded = () => {
+        counter.current += 1;
+        if (counter.current >= cardsPerRowColumn) {
+            setLoading(false);
+        }
+    }
     useEffect(() => {
         const cardsPrev = Array.from({ length: cardsPerRowColumn });
         const selectedurls = [];
@@ -46,10 +56,12 @@ const Board = ({ cardsPerRowColumn, context, totalSeconds }) => {
             /*En este caso es la primer carta del par, por lo cual se voltea la carta selecionada con la ayuda
             de la propiedad cardFound en la carta dentro del arreglo de cartas. Con ayuda de la propiedad
             availableToPick hacemos que no se pueda clicar esta carta hasta que se selecciona la siguiente del par */
+            setCardsClicked(cardsClicked => cardsClicked + 1);
             setSelectedCard(cards[id]);
             setCards(cards.map(element => element.id === id ? { ...element, cardFound: true, availableToPick: false } : element));
         }
         else {
+            setCardsClicked(cardsClicked => cardsClicked + 1);
             //En este caso es la segunda carta del par. Volteamos la carta y hacemos todas las cartas no clickeables
             setCards(cards.map(element => element.id === id ? { ...element, cardFound: true, availableToPick: false } : { ...element, availableToPick: false }));
             //Damos 0.8 segundos para que el usuario vea el par de cartas, antes de determinar si estas coinciden
@@ -88,24 +100,30 @@ const Board = ({ cardsPerRowColumn, context, totalSeconds }) => {
         }
     }
     return (
-        <div style={{ marginTop: "65px" }} >
-            <Grid container>
-                {
-                    cards.length ? (cards.map(({ id, imageUrl, cardFound, availableToPick }) => {
-                        const cardProps = {
-                            id,
-                            imageUrl,
-                            cardFound,
-                            availableToPick,
-                            cardsPerRowColumn,
-                            clickCard
-                        }
-                        return <Grid key={id} item {...responsiveRows[cardsPerRowColumn]}> <Card key={id} {...cardProps} /></Grid>
-                    })) : []
-                }
-            </Grid>
-            <Form totalSeconds={totalSeconds} cardsPerRowColumn={cardsPerRowColumn} />
-        </div>
+        <>
+            <div style={{ marginTop: "65px", width: "90vw", height: "70vh", border: "1px black", display: loading ? "flex" : "none", justifyContent: "center", alignItems: "center" }}>
+                <CircularProgress color="primary" />
+            </div>
+            <div style={{ marginTop: "65px", display: loading ? "none" : "block" }} >
+                <Grid container>
+                    {
+                        cards.length ? (cards.map(({ id, imageUrl, cardFound, availableToPick }) => {
+                            const cardProps = {
+                                id,
+                                imageUrl,
+                                cardFound,
+                                availableToPick,
+                                cardsPerRowColumn,
+                                clickCard,
+                                imageLoaded
+                            }
+                            return <Grid key={id} item {...responsiveRows[cardsPerRowColumn]}> <Card key={id} {...cardProps} /></Grid>
+                        })) : []
+                    }
+                </Grid>
+                <Form cardsFlipped={cardsClicked} totalSeconds={totalSeconds} cardsPerRowColumn={cardsPerRowColumn} />
+            </div>
+        </>
     )
 }
 

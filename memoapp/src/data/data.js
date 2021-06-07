@@ -1,9 +1,14 @@
+import React from 'react';
+import ViewColumnIcon from '@material-ui/icons/ViewColumn';
+import ViewModuleIcon from '@material-ui/icons/ViewModule';
+import ViewComfyIcon from '@material-ui/icons/ViewComfy';
 //Arreglo de dificultades que es renderizado en el menu principal
 export const difficulties = [
     {
         name: 'Pan comido',
         size: '12 cartas',
         cardsPerRowColumn: 12,
+        icon: <ViewColumnIcon style={{ fontSize: 100 }} />,
         message: 'Esta dificultad es lo mas facil que existe, es como quitarle un dulce a un bebe',
         imgUrl: 'https://drive.google.com/uc?export=view&id=17aaJAum032uYMORSRJWdGgRky7mHHYnD'
     },
@@ -11,6 +16,7 @@ export const difficulties = [
         name: 'Normalito',
         size: '24 cartas',
         cardsPerRowColumn: 24,
+        icon: <ViewModuleIcon style={{ fontSize: 100 }} />,
         message: 'Esta un poco mas dificil, pero aun es super pasable',
         imgUrl: 'https://drive.google.com/uc?export=view&id=1ld2k1xej59Fr1bNN0A0Xt6IxYRapLeR1'
     },
@@ -18,6 +24,7 @@ export const difficulties = [
         name: 'Superhipermega dificil',
         size: '48 cartas',
         cardsPerRowColumn: 48,
+        icon: <ViewComfyIcon style={{ fontSize: 100 }} />,
         message: 'Esto ya es demasiado, quedaras traumado de tanta dificultad. God mode.',
         imgUrl: 'https://drive.google.com/uc?export=view&id=13pUnQI5Y1WPz4v9Ue7v3eUf8iyjkoQkZ'
     }

@@ -3,11 +3,11 @@
   flex-grow: 1;
 }
 .wingame {
-  visibility: visible;
+  display: block;
 }
 
 .normalgame {
-  visibility: hidden;
+  display: none;
 }
 body {
   padding:0 2.5%;
@@ -19,12 +19,12 @@ body {
   position: relative;
 }
 .selected {
-  border-left:solid 5px #3d84a8;
+  border-left:solid 5px black;
 }
 .tooltip .tooltiptext {
   visibility: hidden;
   width: 120px;
-  background-color: #3d84a8;
+  background-color: black;
   color: #fff;
   text-align: center;
   padding: 5px 0;
@@ -74,11 +74,12 @@ body {
   display: flex; 
   flex-direction: row; 
   justify-content: space-between;
+  transition: all 0.2s ease-out;
 }
 .modal{
   height: auto;
   position: absolute;
-  top: 30%;
+  top: 20%;
   left: 20%;
   transform: translate(-50%,-50%);
  }
@@ -100,7 +101,7 @@ code {
 }
 .titulo{
   font-family:Monaco;
-  color: #3d84a8;
+  color: black;
   text-align: center;
 }
 .scores{
@@ -126,4 +127,9 @@ code {
   display: inline-block;
   font-size: 16px;
   margin-bottom: 5px;
+}
+
+.formComp {
+  text-align: center;
+  margin-bottom: 20px;
 }
