@@ -7,6 +7,7 @@ import SaveIcon from '@material-ui/icons/Save';
 import Button from '@material-ui/core/Button';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import TextField from '@material-ui/core/TextField';
+import { isresponseJSON } from '../helpers/helpers';
 
 function Alert(props) {
     return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -34,36 +35,29 @@ const Form = ({ totalSeconds, cardsPerRowColumn, cardsFlipped }) => {
             setErrorNameInput(true);
         }
         else {
-            try {
-                const data = {
-                    playerName: name,
-                    totalCards: cardsPerRowColumn,
-                    seconds,
-                    cardsFlipped
-                }
-                const response = await fetch('/v1/scores', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(data)
-                });
-                if (response.ok && await response.json()) {
-                    handleAlert("succes");
-                }
-                else {
-                    throw new Error('No se pudo realizar la peticion');
-                }
+            const data = {
+                playerName: name,
+                totalCards: cardsPerRowColumn,
+                seconds,
+                cardsFlipped
             }
-            catch {
+            const response = await fetch('/v1/scores', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
+            if (response.ok && isresponseJSON(response)) {
+                handleAlert("succes");
+            }
+            else {
                 handleAlert("error");
             }
-            finally {
-                const timeToSee = setTimeout(() => {
-                    clearTimeout(timeToSee);
-                    history.replace("/memo");
-                }, 500);
-            }
+            const timeToSee = setTimeout(() => {
+                clearTimeout(timeToSee);
+                history.replace("/memo");
+            }, 500);
         }
     }
     const comebackStart = (e) => {

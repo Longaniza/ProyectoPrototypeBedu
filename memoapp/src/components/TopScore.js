@@ -5,6 +5,7 @@ import EmojiEventsIcon from '@material-ui/icons/EmojiEvents';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import TimerOffIcon from '@material-ui/icons/TimerOff';
 import MuiAlert from '@material-ui/lab/Alert';
+import { isresponseJSON } from '../helpers/helpers';
 
 function Alert(props) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -24,22 +25,15 @@ function TopScore({ totalCards }) {
     //Funcion utilizada para intentar obtener los tiempos de la base de datos
     const getTimes = async () => {
       setChangedCard(true);
-      try {
-        const cardsPromises = await fetch(`/v1/scores?order=seconds&cards=${totalCards}`);
-        if (cardsPromises.ok) {
-          const cardsPromisesResults = await cardsPromises.json();
-          setHighScores(cardsPromisesResults);
-        }
-        else {
-          throw new Error('No se pudo realizar la peticion');
-        }
+      const cardsPromises = await fetch(`/v1/scores?order=seconds&cards=${totalCards}`);
+      if (cardsPromises.ok && isresponseJSON(cardsPromises)) {
+        const cardsPromisesResults = await cardsPromises.json();
+        setHighScores(cardsPromisesResults);
       }
-      catch {
+      else {
         setPromiseError(true);
       }
-      finally {
-        setChangedCard(false);
-      }
+      setChangedCard(false);
     }
     getTimes();
   }, [totalCards]);
