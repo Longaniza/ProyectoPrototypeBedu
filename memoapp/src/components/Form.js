@@ -8,6 +8,7 @@ import Button from '@material-ui/core/Button';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import TextField from '@material-ui/core/TextField';
 import { isresponseJSON } from '../helpers/helpers';
+import publicIp from 'public-ip';
 
 function Alert(props) {
     return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -41,10 +42,12 @@ const Form = ({ totalSeconds, cardsPerRowColumn, cardsFlipped }) => {
                 seconds,
                 cardsFlipped
             }
+            const ipAddress = await publicIp.v4() || 'N/A';
             const response = await fetch('/v1/scores', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'ipAddress': ipAddress
                 },
                 body: JSON.stringify(data)
             });
@@ -74,7 +77,7 @@ const Form = ({ totalSeconds, cardsPerRowColumn, cardsFlipped }) => {
         <>
             <div style={{ textAlign: "center" }} className={`${totalSeconds ? 'wingame animate__animated animate__backInDown' : 'normalgame'} modal modal-content container`}>
                 <h1 className="titulo">Has encontrado todas las cartas!!!</h1>
-                <h1 className="titulo">Terminaste en {totalSeconds}s</h1>
+                <h1 className="titulo">Terminaste en {totalSeconds - 1} segundos</h1>
                 <h1 className="titulo" >Quieres guardar tu tiempo en los mejores tiempos?</h1>
                 <div className="formComp">
                     <TextField id="standard-basic" error={errorNameInput} helperText={errorNameInput ? "El nombre es requerido" : ""} onChange={handleTextChange} value={text} label={errorNameInput ? "Error " : "Ingresa tu nombre"} />
@@ -84,7 +87,7 @@ const Form = ({ totalSeconds, cardsPerRowColumn, cardsFlipped }) => {
                         variant="contained"
                         color="primary"
                         size="large"
-                        onClick={() => { saveTime({ name: text, seconds: totalSeconds }) }}
+                        onClick={() => { saveTime({ name: text, seconds: totalSeconds - 1 }) }}
                         startIcon={<SaveIcon />}
                     >
                         Guardar tiempo y regresar al menu principal
