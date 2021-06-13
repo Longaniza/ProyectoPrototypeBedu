@@ -6,9 +6,19 @@ El aburrimiento es una enfermedad que se enfrenta cuando estas en tiempo de pand
 ## Solución propuesta
 Qué más divertido que entretenerte compitiendo con tus amigos y contra el mundo para pasar el rato, por lo cual se decidió el crear un memorama.
 El proyecto consiste en un memorama de un solo jugador por tiempo. Existen 3 dificultades, con 12, 24 o 48 cartas. Al seleccionar cualquiera de estas dificultades se empieza a contar el tiempo y se para cuando se gana. Se puede registrar el tiempo a un nombre y ver la comparación contra otros tiempos dentro de una pantalla que muestra los mejores tiempos.
-![]()
+
+![](https://raw.githubusercontent.com/Longaniza/ImagesPrototype/master/menu.png)
+![](https://raw.githubusercontent.com/Longaniza/ImagesPrototype/master/memoplay.png)
+
+
 ## Arquitectura utilizada
-![]()
+![](https://raw.githubusercontent.com/Longaniza/ImagesPrototype/master/arq.jpeg)
+
+## Tablas guardadas en el backend
+### Scores(puntajes)
+
+![](https://raw.githubusercontent.com/Longaniza/ImagesPrototype/master/table.png)
+
 ## Setup
 ### Local
 1. Se clona el repositorio (en este ejemplo con ayuda de https) y se accede a la carpeta raíz del proyecto.
