@@ -17,8 +17,8 @@ function Alert(props) {
 //Componente que representa la forma que aprece al ganar el juego
 const Form = ({ totalSeconds, cardsPerRowColumn, cardsFlipped }) => {
     const history = useHistory();
-    const [open, setOpen] = React.useState(false);
-    const [status, setStatus] = React.useState({ status: "success", message: "El tiempo fue registrado con exito" });
+    const [open, setOpen] = useState(false);
+    const [status, setStatus] = useState({ status: "success", message: "El tiempo fue registrado con exito" });
     const [text, setText] = useState('');
     const [errorNameInput, setErrorNameInput] = useState(false);
 
@@ -91,7 +91,7 @@ const Form = ({ totalSeconds, cardsPerRowColumn, cardsFlipped }) => {
                         startIcon={<SaveIcon />}
                     >
                         Guardar tiempo y regresar al menu principal
-                </Button>
+                    </Button>
                 </div>
                 <div className="formComp">
                     <Button
@@ -102,7 +102,7 @@ const Form = ({ totalSeconds, cardsPerRowColumn, cardsFlipped }) => {
                         startIcon={<ExitToAppIcon />}
                     >
                         Regresar al menu principal
-                </Button>
+                    </Button>
                 </div>
             </div>
             <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>

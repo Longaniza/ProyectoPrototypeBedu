@@ -25,6 +25,7 @@
 	position: relative;
 	transition: transform 1s;
 	transform-style: preserve-3d;
+	
 }
   .card__face {
 	position: absolute;
@@ -35,11 +36,14 @@
   }
  
   .card__face--back {
-	background-color: black;
-	background-image: url('https://axaguildev.github.io/react-toolkit/v1.3.6/storybook/images/react.svg');
+	background-image: url(https://i.imgur.com/qQ4EY7q.png);
+    background-size: 90px 135px;
 	transform: rotateY( 180deg );
   }
   .card.is-flipped {
 	transform: rotateY(180deg);
+  }
+  .animate__animated.animate__heartBeat {
+	--animate-duration: 0.6s;
   }
   

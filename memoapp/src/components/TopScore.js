@@ -13,7 +13,7 @@ function Alert(props) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
 const regularColumns = [
-  { field:'countryCode', headerName:'Pais', width: 150, renderCell: (params) => <>{ params.value === 'N/A' ? <span>N/A</span> : <span className={`flag-icon flag-icon-${params.value.toLowerCase()}`}></span>}</>, sortable: false},
+  { field: 'countryCode', headerName: 'Pais', width: 150, renderCell: (params) => <>{params.value === 'N/A' ? <span>N/A</span> : <span className={`flag-icon flag-icon-${params.value.toLowerCase()}`}></span>}</>, sortable: false },
   { field: 'playerName', headerName: 'Nombre', flex: 1, sortable: false },
   { field: 'seconds', headerName: 'Segundos', width: 200 },
   { field: 'cardsFlipped', headerName: 'Cartas Volteadas', width: 200 }];
@@ -48,7 +48,7 @@ function TopScore({ totalCards }) {
         <h1 className="scores"><b>{totalCards} cartas</b></h1>
         <div style={{ height: 370, width: '100%' }}>
           {changedCard ? <CircularProgress color="primary" /> : promiseError ? <Alert severity="error">Hubo en error al relizar la peticion!</Alert> : highScores.length ? <DataGrid disableColumnMenu disableSelectionOnClick rows={highScores} columns={matches ? smallColumns : regularColumns} pageSize={5} /> : <div style={{ boxShadow: "0px 1px 5px #666", padding: "50px 10px" }}><TimerOffIcon style={{ fontSize: 70 }} /><h1>Sin tiempos registrados</h1></div>}
-        </div> 
+        </div>
       </div>
     </div>
   );

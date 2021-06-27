@@ -15,7 +15,6 @@ function StartPage({ history }) {
         {
             difficulties.map((elem, index) => {
                 return (<div key={index} className={`${selected === elem.cardsPerRowColumn ? 'selected' : ''} animate__animated animate__slideInLeft change-cursor difficulty`} onClick={(e) => { setSelected(elem.cardsPerRowColumn) }}>
-
                     <div>
                         {elem.icon}
                     </div>

@@ -133,3 +133,14 @@ code {
   text-align: center;
   margin-bottom: 20px;
 }
+.animate__animated.animate__fadeInRightBig {
+  animation-delay: 1s;
+}
+.show-card-info {
+  display:flex;
+  justify-content:flex-start;
+  visibility: visible;
+}
+.not-show-card-info {
+  visibility: hidden;
+}
