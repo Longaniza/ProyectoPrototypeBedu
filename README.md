@@ -1,11 +1,18 @@
 # Prototype Memorama - Equipo 7
 
 ## Planteamiento del problema
-El aburrimiento es una enfermedad que se enfrenta cuando estas en tiempo de pandemia. Nada más tedioso que no tener que hacer, y más en tiempos donde se esta el 90% del tiempo en casa.
+#EstamosConectados es una encuesta realizada en noviembre del 2020, en la que participaron más de 3.400 personas, entre estudiantes, docentes y directivos de todo el país de chile, con el objetivo de conocer las condiciones y herramientas de las que disponen las comunidades educativas para sostener el proceso de enseñanza a distancia y obtener sus opiniones ante la pandemia por el Covid-19.
+
+En dicha entrevista se realizó la siguiente pregunta: ¿Qué tan entretenidas o aburridas te han parecido las clases a distancia?, más del 60% respondió que considera aburridas las clases a distancia.
+
+Es preocupante que a la mayoría de los encuestados valoren el aprendizaje en línea como aburrido, este porcentaje de personas podrían presentar falta de motivación y escasez de participación en el aula virtual. Se analizaron las posibles causas de esta situación y se procederá a aplicar una metodología que ayude a resolver este problema.
 
 ## Solución propuesta
-Qué más divertido que entretenerte compitiendo con tus amigos y contra el mundo para pasar el rato, por lo cual se decidió el crear un memorama.
-El proyecto consiste en un memorama de un solo jugador por tiempo. Existen 3 dificultades, con 12, 24 o 48 cartas. Al seleccionar cualquiera de estas dificultades se empieza a contar el tiempo y se para cuando se gana. Se puede registrar el tiempo a un nombre y ver la comparación contra otros tiempos dentro de una pantalla que muestra los mejores tiempos.
+Después de analizar la problemática de la falta de participación y motivación en clase se ha procedido a buscar solución incluyendo la metodología de la gamificación. Dicha metodología busca la motivación del alumnado y ayuda a aprender conceptos de una manera diferente. Además, acerca al alumnado a las nuevas tecnologías y ayuda fijarse objetivos.
+
+La solución propuesta es la gamificación debido a que es una metodología que promueve la motivación y participación. Para ello se llevará a cabo el desarrollo de un juego en línea. 
+
+El proyecto consiste en un memorama de un solo jugador. Existen 3 dificultades, con 12, 24 y 48 cartas. Al seleccionar cualquiera de estas dificultades se empieza a contar el tiempo y se detiene cuando el jugador logra encontrar todos los pares. Al finalizar el juego, el jugador puede registrar el tiempo obtenido registrando su nombre y en el menú principal puede ver en el botón de mejores tiempos, los 50 puntajes más altos, de acuerdo con el tiempo y tarjetas volteadas, ahí mismo podrá observar el nombre y país de los jugadores.
 
 ## Página principal de la Aplicación web
 ![](https://i.imgur.com/1KoH1e1.png)
