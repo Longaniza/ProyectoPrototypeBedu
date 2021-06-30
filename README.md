@@ -68,5 +68,6 @@ Para utilizar nuestra Web App, visita el siguiente url:
 [https://still-cove-58043.herokuapp.com/](https://still-cove-58043.herokuapp.com/)
 
 ## Bibliografías
-Institut de Publique Sondage d'Opinion Secteur (2020). #EstamosConectados. https://educacion2020.cl/encuestas/estamosconectados/encuesta2
-Porcar Marín, Óscar. (2018). La Gamificación, una solución para la falta de motivación y escasez de participación en clase. http://repositori.uji.es/xmlui/bitstream/handle/10234/180113/TFM_2018_PorcarMarin_Oscar.pdf?sequence=1&isAllowed=y#:~:text=La%20gamificaci%C3%B3n%20en%20educaci%C3%B3n%20es,y%20la%20resoluci%C3%B3n%20de%20problemas.
+-Institut de Publique Sondage d'Opinion Secteur (2020). #EstamosConectados. https://educacion2020.cl/encuestas/estamosconectados/encuesta2
+
+-Porcar Marín, Óscar. (2018). La Gamificación, una solución para la falta de motivación y escasez de participación en clase. http://repositori.uji.es/xmlui/bitstream/handle/10234/180113/TFM_2018_PorcarMarin_Oscar.pdf?sequence=1&isAllowed=y#:~:text=La%20gamificaci%C3%B3n%20en%20educaci%C3%B3n%20es,y%20la%20resoluci%C3%B3n%20de%20problemas.
